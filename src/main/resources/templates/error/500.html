@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+
+<head th:replace="Admin/layout :: html_head"></head>
+</head>
+
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+  <div th:replace="Admin/layout :: html_sidebar">
+  </div><!-- End of Sidebar -->
+
+
+  <!-- Content Wrapper -->
+  <div id="content-wrapper" class="d-flex flex-column">
+
+    <!-- Main Content -->
+    <div id="content">
+
+      <!-- Topbar -->
+      <div th:replace="Admin/layout :: html_topbar">
+      </div>
+      <!-- End of Topbar -->
+
+      <!-- Begin Page Content -->
+      <div class="container-fluid">
+
+        <!-- 404 Error Text -->
+        <div class="text-center">
+          <div class="error mx-auto" data-text="500">500</div>
+          <p class="lead text-gray-800 mb-5">Page Not Found</p>
+          <p class="text-gray-500 mb-0">It looks like you found a glitch in the matrix...</p>
+          <a href="javascript:history.back()">Go Back</a>
+        </div>
+
+      </div>
+
+      <!-- /.container-fluid -->
+
+    </div>
+    <!-- End of Main Content -->
+
+    <!-- Footer -->
+    <footer class="sticky-footer bg-white" th:replace="Admin/layout :: html_footer">
+
+    </footer>
+    <!-- End of Footer -->
+
+  </div>
+  <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<div th:replace="Admin/layout :: html_down">
+</div>
+</body>
+</html>

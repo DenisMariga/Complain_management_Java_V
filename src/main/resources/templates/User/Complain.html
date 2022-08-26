@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+<head th:replace="User/layout :: head">
+</head>
+
+<body>
+
+<!-- ======= Header ======= -->
+<header th:replace="User/layout :: header"></header>
+<!-- ======= Sidebar ======= -->
+<aside th:replace="User/layout :: sidebar"></aside>
+<main id="main" class="main">
+
+    <form class="row g-3" th:action="@{/ComplainPost/postComplain}" method="post" enctype="multipart/form-data">
+        <div class="col-md-6">
+            <label for="inputCategory" class="form-label">Category</label>
+            <select id="inputCategory" class="form-select" name="categoryid">
+                <option selected>Select Category...</option>
+                <option th:each="Category : ${Category}" th:value="${Category.id}" th:text="${Category.categoryName}"></option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label for="inputSubCategory" class="form-label">SubCategory</label>
+            <select id="inputSubCategory" class="form-select" name="subcategoryid">
+                <option selected>Select SubCategory...</option>
+                <option th:each="SubCategory : ${SubCategory}" th:value="${SubCategory.id}" th:text="${SubCategory.subCategoryName}">Fees</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Complain Type</label>
+            <select id="inputEmail4" class="form-select" name="complainType">
+                <option selected>Select ComplainType...</option>
+                <option th:each="ComplainType: ${T(com.denismarigakamara.compalinmanagementsystemv2.User.Entity.ComplainType).values()}" th:value="${ComplainType}" th:text="${ComplainType}"></option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label for="inputCampus" class="form-label">Campus</label>
+            <select id="inputCampus" class="form-select" name="Campuses">
+                <option selected>Select Campus...</option>
+                <option th:each="Campuses: ${T(com.denismarigakamara.compalinmanagementsystemv2.User.Entity.Campuses).values()}" th:value="${Campuses}" th:text="${Campuses}"></option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label for="inputNature" class="form-label">Nature of Complaint</label>
+            <input type="text" class="form-control" id="inputNature" name="natureComplain">
+        </div>
+        <div class="mb-1">
+            <label for="exampleFormControlTextarea1" class="form-label">Complaint Details (max 2000 words)</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="ComplaintDetails"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Complaint Related Doc(if any)</label>
+            <input class="form-control" type="file" id="formFile" name="upload">
+        </div>
+        <div class="mb-1">
+            <label for="exampleFormControlTextarea1" class="form-label">Please tell us how we can solve the above problem(max 2000 words)</label>
+            <textarea class="form-control" id="exampleFormControlTextarea2" rows="5" name="Solution"></textarea>
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+
+<footer th:replace="User/layout :: footer"></footer>
+
+<!--&lt;!&ndash; Vendor JS Files &ndash;&gt;-->
+<!--<script th:href="@{/user/vendor/apexcharts/apexcharts.min.js}"></script>-->
+<!--<script th:href="@{/user/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>-->
+<!--<script th:href="@{/user/vendor/chart.js/chart.min.js}"></script>-->
+<!--<script th:href="@{/user/vendor/echarts/echarts.min.js}"></script>-->
+<!--<script th:href="@{/user/vendor/quill/quill.min.js}"></script>-->
+<!--<script th:href="@{/user/vendor/simple-datatables/simple-datatables.js}"></script>-->
+<!--<script th:href="@{/user/vendor/tinymce/tinymce.min.js}"></script>-->
+<!--<script th:href="@{/user/vendor/php-email-form/validate.js}"></script>-->
+
+<!--&lt;!&ndash; Template Main JS File &ndash;&gt;-->
+<!--<script th:href="@{/user/js/main.js}"></script>-->
+
+<div th:replace="User/layout :: scripts">
+
+</div>
+</body>
+
+</html>

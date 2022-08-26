@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+<head th:replace="User/layout :: head">
+</head>
+
+<body>
+
+<!-- ======= Header ======= -->
+<header th:replace="User/layout :: header"></header>
+<!-- ======= Sidebar ======= -->
+<aside th:replace="User/layout :: sidebar"></aside>
+<main id="main" class="main">
+
+
+    <section id="main-content">
+        <section class="wrapper site-min-height">
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                        class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+            </div>
+            <h3><i class="fa fa-angle-right"></i> Complaint Details</h3>
+
+            <hr/>
+            <div th:each="Complain : ${Complain}">
+                <div class="row mt">
+                    <label class="col-sm-2 col-sm-2 control-label"><b>1) Complaint Number : </b></label>
+                    <div class="col-sm-4">
+                        <p th:text="${Complain.id}"></p>
+                    </div>
+                    <label class="col-sm-2 col-sm-2 control-label"><b>2) Reg. Date :</b></label>
+                    <div class="col-sm-4">
+                        <p th:text="${Complain.createdOn}">2022-03-11 22:58:37</p>
+                    </div>
+                </div>
+
+
+                <div class="row mt">
+                    <label class="col-sm-2 col-sm-2 control-label"><b>3) Category :</b></label>
+                    <div class="col-sm-4">
+                        <p th:text="${Complain.category.categoryName}"></p>
+                    </div>
+                    <label class="col-sm-2 col-sm-2 control-label"><b>4) Sub Category :</b> </label>
+                    <div class="col-sm-4">
+                        <p th:text="${Complain.subCategory.subCategoryName}">Hostel</p>
+                    </div>
+                </div>
+
+
+                <div class="row mt">
+                    <label class="col-sm-2 col-sm-2 control-label"><b>5) Complaint Type:</b></label>
+                    <div class="col-sm-4">
+                        <p th:text="${Complain.complainType}">General Query</p>
+                    </div>
+                    <label class="col-sm-2 col-sm-2 control-label"><b>6) Campus :</b></label>
+                    <div class="col-sm-4">
+                        <p th:text="${Complain.campuses}">Marimba</p>
+                    </div>
+                </div>
+
+
+                <div class="row mt">
+                    <label class="col-sm-2 col-sm-2 control-label"><b>7) Nature of Complaint :</b></label>
+                    <div class="col-sm-4">
+                        <p th:text="${Complain.natureComplain}">Can i defer my sem now</p>
+                    </div>
+                    <label class="col-sm-2 col-sm-2 control-label"><b>8) File :</b></label>
+                    <div class="col-sm-4" th:each="Upload :${Upload}">
+                        <p th:text="${Upload.uploadName}">File NA
+                        </p>
+                    </div>
+                </div>
+                <div class="row mt">
+                    <label class="col-sm-2 col-sm-2 control-label"><b>9) Complaint Details </b></label>
+                    <div class="col-sm-10">
+                        <p th:text="${Complain.ComplaintDetails}"></p>
+                    </div>
+
+                </div>
+
+
+                <div class="row mt">
+
+                    <label class="col-sm-2 col-sm-2 control-label"><b>10) Remark:</b></label>
+                    <div class="col-sm-10">
+                        bbbbbb&nbsp;&nbsp; <b>Remark Date:
+                        2022-03-11 23:27:48</b>
+                    </div>
+                </div>
+                <div class="row mt">
+
+                    <label class="col-sm-2 col-sm-2 control-label"><b>11) Status:</b></label>
+                    <div class="col-sm-10">
+                        closed
+                    </div>
+                </div>
+
+
+                <div class="row mt">
+
+                    <label class="col-sm-2 col-sm-2 control-label"><b>12) Final Status :</b></label>
+                    <div class="col-sm-4">
+                        <p style="color:green">closed</p>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </section>
+        <! --/wrapper -->
+    </section><!-- /MAIN CONTENT -->
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+
+<footer th:replace="User/layout :: footer"></footer>
+
+<!--&lt;!&ndash; Vendor JS Files &ndash;&gt;-->
+<!--<script th:href="@{/user/vendor/apexcharts/apexcharts.min.js}"></script>-->
+<!--<script th:href="@{/user/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>-->
+<!--<script th:href="@{/user/vendor/chart.js/chart.min.js}"></script>-->
+<!--<script th:href="@{/user/vendor/echarts/echarts.min.js}"></script>-->
+<!--<script th:href="@{/user/vendor/quill/quill.min.js}"></script>-->
+<!--<script th:href="@{/user/vendor/simple-datatables/simple-datatables.js}"></script>-->
+<!--<script th:href="@{/user/vendor/tinymce/tinymce.min.js}"></script>-->
+<!--<script th:href="@{/user/vendor/php-email-form/validate.js}"></script>-->
+
+<!--&lt;!&ndash; Template Main JS File &ndash;&gt;-->
+<!--<script th:href="@{/user/js/main.js}"></script>-->
+
+<div th:replace="User/layout :: scripts">
+
+</div>
+</body>
+
+</html>
